@@ -134,14 +134,17 @@ void SmallFishHitPlayer()
 	}
 }
 
-// 작은 물고기 alive false 처리
 void ResetSmallFish() {
-	SmallFish* tempSmallFish = g_SmallFishList[GetMapStatus()];
-	for (int idx = 0; idx < g_SmallFishListIdx[GetMapStatus()]; idx++)
+	for (int i = 0; i < STAGE_CNT; i++)
 	{
-		tempSmallFish[idx].mon.alive = false;
+		SmallFish* tempSmallFish = g_SmallFishList[i];
+		for (int idx = 0; idx < g_SmallFishListIdx[i]; idx++)
+		{
+			tempSmallFish[idx].mon.alive = false;
+		}
 	}
 }
+
 
 void InitSmallFish()
 {
